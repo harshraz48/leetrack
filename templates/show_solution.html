@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head><title>Solutions</title></head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+    </nav>
+    <hr>
+
+    <h1>Solutions for: {{ problem[0] }}</h1>
+
+    {% for solution in solutions %}
+    <div style="border: 1px solid black; margin-bottom: 10px; padding: 10px;">
+        <p><strong>Date Solved:</strong> {{ solution[9] }}</p>
+        <p><strong>Intuition:</strong> {{ solution[2] }}</p>
+        <p><strong>Code:</strong></p>
+        <pre>{{ solution[3] }}</pre>
+        <p><strong>Time Taken:</strong> {{ solution[4] }} min</p>
+        <p><strong>Time Complexity:</strong> {{ solution[5] }}</p>
+        <p><strong>Space Complexity:</strong> {{ solution[6] }}</p>
+        <p><strong>Property:</strong> {{ solution[7] }}</p>
+        <p><strong>Needs Revisit:</strong> {{ solution[8] }}</p>
+    </div>
+    {% else %}
+    <p>No solutions logged yet for this problem.</p>
+    {% endfor %}
+</body>
+</html>

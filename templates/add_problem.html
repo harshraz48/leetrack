@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><title>Add problem</title></head>
+<body>
+    <h1> add a new problem </h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add_problem">Add problems</a>
+        <a href="/add_solution">Add_solution</a>
+        <a href="/add_tags">Add tags</a>
+        <a href="/add_problem_tags">Links problems to tags</a>
+    </nav>
+    <hr>
+    <form method="POST">
+        <label>Problem name</label>
+        <input type="text" name="problem_name" required><br>
+        
+        <label> LeetCode Number</label>
+        <input type="number" name="leetcode_num"><br>
+
+        <label> Difficulty:</label>
+        <select name="difficulty">
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard"> Hard</option>
+        </select><br>
+    <button type="submit">Add problem</button>
+    </form>
+</body>
+</html>

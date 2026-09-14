@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head><title> LINK THE PROBLEM WITH TAGS</title></head>
+<body>
+    <h1>link a problem to the tag</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add_problem">Add problems</a>
+        <a href="/add_solution">Add_solution</a>
+        <a href="/add_tags">Add tags</a>
+        <a href="/add_problem_tags">Links problems to tags</a>
+    </nav>
+    <hr>
+    <form method="POST">
+        <label>Problem:</label>
+        <select name="problem_id">
+            {% for problem in problems %}
+            <option value="{{ problem[0] }}">{{ problem[1] }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label>Tag:</label>
+        <select name="tag_id">
+            {% for tag in tags %}
+            <option value="{{ tag[0] }}">{{ tag[1] }}</option>
+            {% endfor %}
+        </select><br>
+
+       <button type="submit">Link tag</button>
+    </form>
+</body>
+</html>

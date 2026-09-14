@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head><title>LeeTrack</title></head>
+    <body>
+        <h1>LeeTrack</h1>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/add_problem">Add problems</a>
+            <a href="/add_solution">Add_solution</a>
+            <a href="/add_tags">Add tags</a>
+            <a href="/add_problem_tags">Links problems to tags</a>
+        </nav>
+        <hr>
+
+        <div style="max-height: 500px; overflow-y: scroll;">
+            <table border="1">
+                <tr>
+                    <th>Id</th>
+                    <th>problem name</th>
+                    <th>leetcode #</th>
+                    <th>Difficulty</th>
+                    <th>Solutions</th>
+                </tr>
+                {% for problem in problems %}
+                <tr>
+                    <td>{{ problem[3] }}</td>
+                    <td>{{ problem[0] }}</td>
+                    <td>{{ problem[1] }}</td>
+                    <td>{{ problem[2] }}</td>
+                    <td><a href="/solution/{{ problem[3] }}">See solution</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+
+    </body>
+</html>

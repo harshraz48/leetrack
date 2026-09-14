@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head><title>ADD SOLUTION</title></head>
+<body>
+    <h1>add solution for the problem</h1>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add_problem">Add problems</a>
+        <a href="/add_solution">Add_solution</a>
+        <a href="/add_tags">Add tags</a>
+        <a href="/add_problem_tags">Links problems to tags</a>
+    </nav>
+    <hr>
+    
+    <form method="POST">
+        <label>Problem</label>
+        <select name="problem_id">
+            {% for problem in problems %}
+            <option value="{{ problem[0] }}">{{ problem[1] }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label>Intuition</label>
+        <input type = "text" name = "intuition"><br>
+
+        <label>Code</label>
+        <input type ="text" name = "code"><br>
+
+        <label>time taken in minutes</label>
+        <input type ="number" name = "time_taken"><br>
+
+        <label>time complexity</label>
+        <input type = "text" name = "time_complexity"><br>
+
+        <label>space complexity</label>
+        <input type = "text" name = "space_complexity"><br>
+
+        <label>property</label>
+        <input type = "text" name = "property_val"><br>
+
+        <label>need to revisit</label>
+        <select name = "need_to_revisit">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br>
+
+        <label>Date solved</label>
+        <input type="date" name="date_solved"><br>
+        <button type="submit">Add solution</button>
+    </form>
+</body>
+</html>
