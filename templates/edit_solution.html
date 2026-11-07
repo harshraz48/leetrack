@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head><title>EDIT SOLUTION</title></head>
+<body>
+    <h1>Edit a solution for an existing problem</h1>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add_problem">Add problems</a>
+        <a href="/add_solution">Add_solution</a>
+        <a href="/add_tags">Add tags</a>
+        <a href="/add_problem_tags">Links problems to tags</a>
+    </nav>
+
+    <hr>
+
+    <form method="POST">
+    
+
+        <label>Intuition</label>
+        <textarea name="intuition" rows="10" cols="60">{{ solution.intuition }}</textarea><br>
+        <label>Code</label>
+        <textarea name="code" rows="10" cols="60">{{ solution.code }}</textarea><br>
+
+        <label>time taken in minutes</label>
+        <input type="number" name="time_taken" value="{{ solution.time_taken }}"><br>
+
+        <label>time complexity</label>
+        <input type = "text" name = "time_complexity" value="{{ solution.time_complexity }}"><br>
+
+        <label>space complexity</label>
+        <input type = "text" name = "space_complexity" value="{{ solution.space_complexity}}"><br>
+    
+        <label>property</label>
+        <input type="text" name="property_val" value="{{ solution.property }}"><br>
+
+        <select name="need_to_revisit">
+        <option value="yes" {% if solution.need_to_revisit == 'yes' %}selected{% endif %}>Yes</option>
+        <option value="no" {% if solution.need_to_revisit == 'no' %}selected{% endif %}>No</option>
+        </select><br> 
+
+        <label>Date solved</label>
+        <input type="date" name="date_solved" value="{{ solution.date_solved }}"><br>
+        <button type="submit">Edit solution</button>
+    </form>
+
+</body>
+</html>

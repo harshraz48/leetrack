@@ -13,6 +13,27 @@
         </nav>
         <hr>
 
+        <form method = "GET">
+            <input type="text" name="q" placeholder="Search problmes" value="{{ q }}">
+            <label>Difficulty</label>
+            <select name="difficulty">
+                <option value="">ALL</option>
+                <option value="Easy" {% if selected_difficulty == 'Easy' %}selected{% endif %}>Easy</option>
+                <option value="Medium" {% if selected_difficulty == 'Medium' %}selected{% endif %}>Medium</option>
+                <option value="Hard" {% if selected_difficulty == 'Hard' %}selected{% endif %}>Hard</option>
+            </select>
+    
+            <label>Tags</label>
+            <select name = "tag">
+                <option value="">ALL</option>
+                {% for t in tags %}
+                <option value="{{ t.id }}" {% if selected_tag == t.id|string %}selected{% endif %}>{{ t.tag_name }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Filter</button>
+        </form>
+    
         <div style="max-height: 500px; overflow-y: scroll;">
             <table border="1">
                 <tr>
@@ -20,15 +41,23 @@
                     <th>problem name</th>
                     <th>leetcode #</th>
                     <th>Difficulty</th>
+                    <th>Tags</th>
                     <th>Solutions</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
                 {% for problem in problems %}
                 <tr>
-                    <td>{{ problem[3] }}</td>
-                    <td>{{ problem[0] }}</td>
-                    <td>{{ problem[1] }}</td>
-                    <td>{{ problem[2] }}</td>
-                    <td><a href="/solution/{{ problem[3] }}">See solution</a></td>
+                <td>{{ problem.id }}</td>
+                <td>{{ problem.problem_name }}</td>
+                <td>{{ problem.leetcode_num }}</td>
+                <td>{{ problem.difficulty }}</td>
+                <td>{{ problem.tags }}</td>
+                <td><a href="/solution/{{ problem.id }}">See solution</a></td>
+                <td><a href="/edit_problem/{{ problem.id }}">Edit problem</a></td>
+                <td><form method="POST" action="/delete_problem/{{ problem.id }}" 
+                    style="display: inline;" onsubmit="return confirm('delete this problem?')">
+                    <button type="submit">Delete</button></td>
                 </tr>
                 {% endfor %}
             </table>

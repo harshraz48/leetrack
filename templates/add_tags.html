@@ -13,10 +13,23 @@
         <a href="/add_problem_tags">Links problems to tags</a>
     </nav>
     <hr>
+    {% if message %}<p>{{ message }}</p>{% endif %}
     <form method="POST">
         <label>tag name:</label>
         <input type="text" name="tag_name"required>
         <button type="submit">add tag</button>
     </form>
+    <h2>Existing tags</h2>
+   <ul>
+   {% for tag in tags %}
+     <li>{{ tag.tag_name }}
+  <form method="POST" action="/delete_tag/{{ tag.id }}"
+        style="display: inline;"
+        onsubmit="return confirm('Delete this tag and unlink it from all problems?')">
+    <button type="submit">Delete</button>
+  </form>
+</li>
+   {% endfor %}
+</ul>
 </body>
 </html>

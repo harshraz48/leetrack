@@ -17,15 +17,15 @@
         <label>Problem</label>
         <select name="problem_id">
             {% for problem in problems %}
-            <option value="{{ problem[0] }}">{{ problem[1] }}</option>
+              <option value="{{ problem.id }}">{{ problem.problem_name }}</option>
             {% endfor %}
         </select><br>
 
         <label>Intuition</label>
-        <input type = "text" name = "intuition"><br>
+        <textarea name="intuition" rows="10" cols="60"></textarea><br>
 
         <label>Code</label>
-        <input type ="text" name = "code"><br>
+        <textarea name="code" rows="10" cols="60"></textarea><br>
 
         <label>time taken in minutes</label>
         <input type ="number" name = "time_taken"><br>

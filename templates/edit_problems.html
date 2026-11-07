@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Edit problem</title></head>
+<body>
+    <h1>Edit the details of an existing problem</h1>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add_problem">Add problems</a>
+        <a href="/add_solution">Add_solution</a>
+        <a href="/add_tags">Add tags</a>
+        <a href="/add_problem_tags">Links problems to tags</a>
+    </nav>
+
+    <hr>
+
+    <form method="POST">
+
+        <label>Problem_name</label>
+        <input type = "text" name = "problem_name" value="{{ problem.problem_name }}"><br>
+
+        <label>Leetcode Number</label>
+        <input type = "number" name = "leetcode_num" value="{{ problem.leetcode_num}}"><br>
+
+        <label>Difficulty:</label>
+        <select name="difficulty">
+        <option value="Easy" {% if problem.difficulty == 'Easy' %}selected{% endif %}>Easy</option>
+        <option value="Medium" {% if problem.difficulty == 'Medium' %}selected{% endif %}>Medium</option>
+        <option value="Hard" {% if problem.difficulty == 'Hard' %}selected{% endif %}>Hard</option>
+        </select><br>
+
+        <button type="submit">Edit problem</button>
+    </form>
+</body>
+</html>
